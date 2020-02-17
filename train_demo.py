@@ -81,11 +81,13 @@ def main():
                         help='only test')
     parser.add_argument('--pair', action='store_true',
                         help='use pair model')
+    parser.add_argument('--exp_prefix', default="")
     parser.add_argument('--pretrain_ckpt', default=None,
                         help='bert / roberta pre-trained checkpoint')
 
     opt = parser.parse_args()
-    experiment_name = '-'.join([opt.model, opt.encoder, opt.train, opt.val, str(opt.N), str(opt.K)])
+    experiment_name = '-'.join([opt.exp_prefix, opt.model, opt.encoder,
+                                opt.train, opt.val, str(opt.N), str(opt.K)])
     if opt.adv is not None:
         experiment_name += '-adv_' + opt.adv
     if opt.na_rate != 0:
