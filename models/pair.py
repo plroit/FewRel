@@ -8,8 +8,8 @@ from torch.nn import functional as F
 
 class Pair(fewshot_re_kit.framework.FewShotREModel):
     
-    def __init__(self, sentence_encoder, hidden_size=230):
-        fewshot_re_kit.framework.FewShotREModel.__init__(self, sentence_encoder)
+    def __init__(self, sentence_encoder, hidden_size=230, device=None):
+        fewshot_re_kit.framework.FewShotREModel.__init__(self, sentence_encoder, device=device)
         self.hidden_size = hidden_size
         # self.fc = nn.Linear(hidden_size, hidden_size)
         self.drop = nn.Dropout()
