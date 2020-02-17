@@ -1,6 +1,7 @@
 # folders
 checkpoint
 test_result
+logs
 
 # files
 *.pyc
