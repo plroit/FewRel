@@ -91,7 +91,9 @@ def main():
     if opt.na_rate != 0:
         experiment_name += '-na{}'.format(opt.na_rate)
 
-    logger = setup_logger(os.path.join("logs", experiment_name))
+    out_dir = os.path.join("logs", experiment_name)
+    os.makedirs(out_dir, exist_ok=True)
+    logger = setup_logger(out_dir)
     trainN = opt.trainN
     N = opt.N
     K = opt.K
