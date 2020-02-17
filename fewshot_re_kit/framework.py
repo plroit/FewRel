@@ -64,7 +64,7 @@ class FewShotREModel(nn.Module):
         You need to set self.cost as your own loss function.
         '''
         nn.Module.__init__(self)
-        self.sentence_encoder = nn.DataParallel(sentence_encoder, device_ids=device)
+        self.sentence_encoder = nn.DataParallel(sentence_encoder, device_ids=[device])
         self.cost = nn.CrossEntropyLoss()
 
     def forward(self, support, query, N, K, Q):
